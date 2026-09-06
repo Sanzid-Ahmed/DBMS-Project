@@ -3,7 +3,7 @@ import React from 'react';
 const RootLayout = () => {
     return (
         <div>
-            <h1>Hello World</h1>
+            <h1>Hello World from sunzid</h1>
         </div>
     );
 };
