@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('themeToggle');
   const body = document.body;
 
+
+  const email = localStorage.getItem("pcbuilder_user_email");
+    console.log(email);
+
   // Retrieve saved theme preference from LocalStorage
   const savedTheme = localStorage.getItem('theme');
   

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Builder - Authentication</title>
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+    <!-- ==================== THEME TOGGLE HEADER ==================== -->
+    <header class="top-bar">
+        <a href="../index.html" class="brand">
+            <span class="brand-name">PC BUILDER</span>
+        </a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark and Light Mode">
+            <span id="theme-icon">🌙</span>
+            <span id="theme-text">Dark Mode</span>
+        </button>
+    </header>
+
+    <!-- ==================== MAIN AUTH CONTAINER ==================== -->
+    <main class="auth-wrapper">
+        <div class="auth-card">
+            
+            <!-- Dynamic Message Banner -->
+            <div id="auth-message" class="auth-message hidden" role="alert"></div>
+
+            <!-- Tab Switcher -->
+            <div class="auth-tabs" role="tablist">
+                <button id="tab-login" class="tab-btn active" role="tab" aria-selected="true" aria-controls="login-form-container">Login</button>
+                <button id="tab-signup" class="tab-btn" role="tab" aria-selected="false" aria-controls="signup-form-container">Sign Up</button>
+            </div>
+
+            <!-- ==================== LOGIN FORM ==================== -->
+            <div id="login-form-container" class="form-container active" role="tabpanel">
+                <form id="login-form" novalidate>
+                    <div class="input-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" required placeholder="builder@example.com" autocomplete="email">
+                        <span class="field-error" id="login-email-error"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="login-password" required placeholder="••••••••" autocomplete="current-password">
+                            <button type="button" class="toggle-password-btn" aria-label="Show password">Show</button>
+                        </div>
+                        <span class="field-error" id="login-password-error"></span>
+                    </div>
+
+                    <div class="form-actions">
+                        <a href="#" id="forgot-password-link" class="link">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <p class="switch-prompt">
+                    Don't have an account? <a href="#" id="switch-to-signup" class="link">Sign Up</a>
+                </p>
+            </div>
+
+            <!-- ==================== SIGN UP FORM ==================== -->
+            <div id="signup-form-container" class="form-container hidden" role="tabpanel">
+                <form id="signup-form" novalidate>
+                    <div class="input-group">
+                        <label for="signup-username">User Name</label>
+                        <input type="text" id="signup-username" required placeholder="TechBuilder99" autocomplete="username">
+                        <span class="field-error" id="signup-username-error"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" required placeholder="builder@example.com" autocomplete="email">
+                        <span class="field-error" id="signup-email-error"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="signup-password" required placeholder="••••••••" autocomplete="new-password">
+                            <button type="button" class="toggle-password-btn" aria-label="Show password">Show</button>
+                        </div>
+                        <!-- Strength Meter -->
+                        <div class="strength-meter">
+                            <div id="strength-bar" class="strength-bar"></div>
+                        </div>
+                        <span id="strength-text" class="strength-text">Password strength: Weak</span>
+                        <span class="field-error" id="signup-password-error"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="signup-confirm-password" required placeholder="••••••••" autocomplete="new-password">
+                            <button type="button" class="toggle-password-btn" aria-label="Show password">Show</button>
+                        </div>
+                        <span class="field-error" id="signup-confirm-password-error"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-url">User URL <span class="optional">(optional)</span></label>
+                        <input type="url" id="signup-url" placeholder="https://mybuilds.com/user">
+                        <span class="field-error" id="signup-url-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </form>
+
+                <p class="switch-prompt">
+                    Already have an account? <a href="#" id="switch-to-login" class="link">Login</a>
+                </p>
+            </div>
+
+            <!-- Demo Logged-In Interface (Backend-Ready State Showcase) -->
+            <div id="user-session-container" class="form-container hidden">
+                <div class="session-card">
+                    <p>Welcome back, <strong id="logged-user-email">User</strong>!</p>
+                    <p class="sub-text">You are currently logged in.</p>
+                    <button id="logout-btn" class="btn btn-secondary">Logout</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>
