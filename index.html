@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildWise - PC Builder & Price Comparison</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+        </svg>
+        <span>BuildWise</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <!-- <a href="#builder" class="nav-link">PC Builder</a> -->
+        <a href="pages/components.html" class="nav-link">Components</a>
+        <!-- <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#about" class="nav-link">About</a> -->
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Dark/Light Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="#builder" class="btn btn-primary nav-btn">Build Your PC</a>
+
+        <!-- Hamburger Menu Toggle for Mobile -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SLIDER ==================== -->
+    <!-- ==================== HERO SLIDER ==================== -->
+<section class="hero" id="home">
+
+    <div class="slider-container">
+
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <img src="images/banner-1.jpg" alt="PC Builder" class="hero-image">
+
+            <div class="container slide-content">
+                <h1 class="slide-title">
+                    Build Your Dream PC at the Best Price
+                </h1>
+
+                <p class="slide-description">
+                    Compare PC component prices from multiple platforms
+                    and find the absolute lowest available price.
+                </p>
+
+                <a href="#builder" class="btn btn-primary">
+                    Start Building
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <img src="images/banner-2.jpg" alt="PC Components" class="hero-image">
+
+            <div class="container slide-content">
+                <h1 class="slide-title">
+                    Compare Components. Save More.
+                </h1>
+
+                <p class="slide-description">
+                    Track prices for CPUs, GPUs, RAM, SSDs, and more
+                    across top online retailers.
+                </p>
+
+                <a href="#components" class="btn btn-primary">
+                    Explore Components
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <img src="images/banner-3.jpg" alt="Build Your PC" class="hero-image">
+
+            <div class="container slide-content">
+                <h1 class="slide-title">
+                    Your PC. Your Budget.
+                </h1>
+
+                <p class="slide-description">
+                    Build a high-performance computer while keeping
+                    every component price under control.
+                </p>
+
+                <a href="#builder" class="btn btn-primary">
+                    Build Your PC
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Previous Button -->
+        <button class="slider-btn prev-btn" id="prevBtn">
+            &#10094;
+        </button>
+
+        <!-- Next Button -->
+        <button class="slider-btn next-btn" id="nextBtn">
+            &#10095;
+        </button>
+
+
+        <!-- Dots -->
+        <div class="dots-container">
+
+            <span class="dot active" data-index="0"></span>
+
+            <span class="dot" data-index="1"></span>
+
+            <span class="dot" data-index="2"></span>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- ==================== FEATURES / WHY USE OUR PLATFORM ==================== -->
+    <section class="section features-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Use Our Platform?</h2>
+          <p>We streamline PC building by aggregating live component deals in one smart dashboard.</p>
+        </div>
+
+        <div class="grid grid-4">
+          <!-- Card 1 -->
+          <div class="card feature-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 20V10"></path>
+                <path d="M12 20V4"></path>
+                <path d="M6 20v-6"></path>
+              </svg>
+            </div>
+            <h3>Compare Prices</h3>
+            <p>Automatically fetch and compare live prices from top e-commerce platforms.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card feature-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h3>Find Minimum Cost</h3>
+            <p>Instantly spot lowest price tags and save big on individual parts.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card feature-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Custom PC Builder</h3>
+            <p>Interactive setup guide to create your custom rig step-by-step with guaranteed fit.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card feature-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3>Smart Decisions</h3>
+            <p>Make data-backed decisions using market history and price trends.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PC COMPONENTS ==================== -->
+    <section class="section components-section" id="components">
+      <div class="container">
+        <div class="section-header">
+          <h2>Find the Best Price for Your Components</h2>
+          <p>Browse through core categories and grab the best available deals.</p>
+        </div>
+
+        <div class="grid grid-4" id="componentGrid">
+          <!-- CPU -->
+          <div class="card component-card" data-category="cpu">
+            <div class="component-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="15" x2="23" y2="15"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="15" x2="4" y2="15"></line>
+              </svg>
+            </div>
+            <h3>CPU</h3>
+            <p>Compare processors from Intel and AMD across multiple platforms.</p>
+            <a href="#" class="btn btn-secondary btn-full">Compare Prices</a>
+          </div>
+
+          <!-- GPU -->
+          <div class="card component-card" data-category="gpu">
+            <div class="component-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                <circle cx="8" cy="12" r="2.5"></circle>
+                <circle cx="16" cy="12" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3>GPU</h3>
+            <p>Find lowest rates on NVIDIA GeForce and AMD Radeon graphics cards.</p>
+            <a href="#" class="btn btn-secondary btn-full">Compare Prices</a>
+          </div>
+
+          <!-- Motherboard -->
+          <div class="card component-card" data-category="motherboard">
+            <div class="component-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <path d="M7 7h4v4H7z"></path>
+                <path d="M15 7h2v2h-2z"></path>
+                <path d="M7 15h10v2H7z"></path>
+              </svg>
+            </div>
+            <h3>Motherboard</h3>
+            <p>Compatible motherboards supporting various sockets and form factors.</p>
+            <a href="#" class="btn btn-secondary btn-full">Compare Prices</a>
+          </div>
+
+          <!-- RAM -->
+          <div class="card component-card" data-category="ram">
+            <div class="component-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="8" width="20" height="8" rx="1"></rect>
+                <line x1="6" y1="16" x2="6" y2="19"></line>
+                <line x1="10" y1="16" x2="10" y2="19"></line>
+                <line x1="14" y1="16" x2="14" y2="19"></line>
+                <line x1="18" y1="16" x2="18" y2="19"></line>
+              </svg>
+            </div>
+            <h3>RAM</h3>
+            <p>High-speed DDR4 and DDR5 memory modules at competitive prices.</p>
+            <a href="#" class="btn btn-secondary btn-full">Compare Prices</a>
+          </div>
+
+          <!-- Storage -->
+          <div class="card component-card" data-category="storage">
+            <div class="component-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="12" x2="2" y2="12"></line>
+                <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                <line x1="6" y1="16" x2="6.01" y2="16"></line>
+                <line x1="10" y1="16" x2="10.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3>Storage</h3>
+            <p>Compare ultra-fast NVMe M.2 SSDs, SATA SSDs, and hard drives.</p>
+            <a href="#" class="btn btn-secondary btn-full">Compare Prices</a>
+          </div>
+
+          <!-- PSU -->
+          <div class="card component-card" data-category="psu">
+            <div class="component-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h3>PSU</h3>
+            <p>Reliable power supply units with high energy efficiency certifications.</p>
+            <a href="#" class="btn btn-secondary btn-full">Compare Prices</a>
+          </div>
+
+          <!-- PC Case -->
+          <div class="card component-card" data-category="case">
+            <div class="component-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2"></rect>
+                <line x1="9" y1="6" x2="15" y2="6"></line>
+                <line x1="9" y1="10" x2="15" y2="10"></line>
+                <circle cx="12" cy="16" r="1.5"></circle>
+              </svg>
+            </div>
+            <h3>PC Case</h3>
+            <p>Stylish cases offering modular layouts, optimal airflow, and RGB lighting.</p>
+            <a href="#" class="btn btn-secondary btn-full">Compare Prices</a>
+          </div>
+
+          <!-- CPU Cooler -->
+          <div class="card component-card" data-category="cooler">
+            <div class="component-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v12"></path>
+                <path d="M6 12h12"></path>
+                <path d="M7.75 7.75l8.5 8.5"></path>
+                <path d="M7.75 16.25l8.5-8.5"></path>
+              </svg>
+            </div>
+            <h3>CPU Cooler</h3>
+            <p>Quiet air coolers and liquid AIO solutions to keep thermals under control.</p>
+            <a href="#" class="btn btn-secondary btn-full">Compare Prices</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HOW IT WORKS ==================== -->
+    <section class="section how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2>How It Works</h2>
+          <p>Get your optimized PC build ready in four effortless steps.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Choose Components</h3>
+            <p>Select the exact parts you need for your gaming or productivity setup.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>We Compare</h3>
+            <p>Our algorithm scans multi-retailer stores in real-time to gather price rates.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Find Lowest Price</h3>
+            <p>Filter out hidden shipping costs and inspect cheapest options easily.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3>Build Within Budget</h3>
+            <p>Finalize your custom list knowing you grabbed every deal possible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CALL TO ACTION ==================== -->
+    <section class="section cta-section" id="builder">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Ready to Build Your PC?</h2>
+          <p>Choose your components, compare price options from trusted sellers, and maximize your performance dollar.</p>
+          <a href="#" class="btn btn-primary btn-large">Start Building Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <!-- Footer Column 1: Brand -->
+      <div class="footer-col">
+        <a href="#" class="logo footer-logo">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+          </svg>
+          <span>BuildWise</span>
+        </a>
+        <p class="footer-description">
+          The ultimate smart PC price comparison engine. Aggregating live deals so you never overpay for your hardware.
+        </p>
+      </div>
+
+      <!-- Footer Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#builder">PC Builder</a></li>
+          <li><a href="#components">Components</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 3: Components -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Components</h4>
+        <ul class="footer-links">
+          <li><a href="#components">CPU / Processors</a></li>
+          <li><a href="#components">GPU / Video Cards</a></li>
+          <li><a href="#components">Memory (RAM)</a></li>
+          <li><a href="#components">Storage (SSD/HDD)</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 4: Support -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Copyright -->
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 BuildWise. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script File -->
+  <script src="./js/script.js"></script>
+</body>
+</html>
