@@ -30,21 +30,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ============================================================
 // LOAD COMPONENT DATA
 // ============================================================
-
-/**
- * Loads component data from JSON.
- *
- * Later, you can replace the GitHub JSON URL with:
- *
- * const response = await fetch(
- *   "http://localhost:8080/api/components"
- * );
- *
- * const components = await response.json();
- */
 async function loadComponents() {
   const loadingState = document.getElementById("loadingState");
   const productGrid = document.getElementById("productGrid");
@@ -78,7 +80,7 @@ async function loadComponents() {
 
     console.log("Loaded Components:", components);
 
-    // Make sure response is an array
+    
     if (!Array.isArray(components)) {
       throw new Error("Component data must be an array");
     }
@@ -114,6 +116,21 @@ async function loadComponents() {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // ============================================================
@@ -184,6 +201,22 @@ function calculatePriceData(item) {
     totalStores: stores.length
   };
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // ============================================================

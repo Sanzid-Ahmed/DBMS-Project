@@ -49,6 +49,14 @@ function applyTheme(theme) {
         theme === "dark" ? "Dark Mode" : "Light Mode";
 }
 
+
+
+
+
+
+
+
+
 // ==================== TABS ====================
 
 function initTabs() {
@@ -87,6 +95,18 @@ function showSession() {
     $("logged-user-email").textContent =
         localStorage.getItem(USER_KEY) || "Builder";
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ==================== PASSWORD TOGGLE ====================
 
@@ -192,12 +212,20 @@ function initForms() {
     $("logout-btn").onclick = logout;
 }
 
+
+
+
+
+
+
+
+
+
+
 // ==================== REGISTER ====================
 
 async function registerUser(email, password) {
-    try {
         const params = new URLSearchParams({ email, password });
-
         const response = await fetch(
             "http://localhost:8090/signup",
             {
@@ -212,24 +240,19 @@ async function registerUser(email, password) {
 
         const data = await response.text();
 
-        if (!response.ok) throw new Error(data);
 
         showMessage("✓ " + data, "success");
         signupForm.reset();
         passwordStrength("");
 
-        setTimeout(() => showTab("login"), 1500);
-
-    } catch (error) {
-        console.error("Registration error:", error);
-        showMessage("✕ " + error.message, "error");
-    }
+        setTimeout(() => {
+                window.location.href = "../index.html";
+            }, 800);
 }
 
 // ==================== LOGIN ====================
 
 async function loginUser(email, password) {
-    try {
         const params = new URLSearchParams({ email, password });
 
         const response = await fetch(
@@ -246,7 +269,6 @@ async function loginUser(email, password) {
 
         const data = await response.text();
 
-        if (!response.ok) throw new Error(data);
 
         if (data === "Login Successfully") {
 
@@ -268,12 +290,11 @@ async function loginUser(email, password) {
         } else {
             showMessage("✕ " + data, "error");
         }
-
-    } catch (error) {
-        console.error("Login error:", error);
-        showMessage("✕ " + error.message, "error");
-    }
 }
+
+
+
+
 
 // ==================== LOGOUT ====================
 
@@ -284,6 +305,20 @@ function logout() {
     showTab("login");
     showMessage("✓ You have been logged out.", "success");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ==================== VALIDATION ====================
 
@@ -343,6 +378,13 @@ function passwordStrength(password) {
         text.textContent = "Password strength: Strong";
     }
 }
+
+
+
+
+
+
+
 
 // ==================== MESSAGES ====================
 

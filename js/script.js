@@ -43,6 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+
+
+
+
+
+
+  
   // ==================== HERO SLIDER ====================
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
@@ -102,6 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  
+  
+  
   // Automatic Slide Rotation Cycle
   function startAutoSlide() {
     autoSlideInterval = setInterval(nextSlide, 5000);
