@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build PC | ThriftBuild</title>
+    <link rel="stylesheet" href="../css/BuildPcStyle.css" />
+    <link rel="stylesheet" href="../css/LoadingState.css" />
+    <script src="../js/LoadingState.js" defer></script>
+  </head>
+
+  <body>
+    <header id="site-header">
+      <div id="header-inner">
+        <a id="brand" href="Home.html" aria-label="ThriftBuild home">
+          <span id="brand-mark">TB</span>
+          <span id="brand-name">Thrift<span>Build</span></span>
+        </a>
+
+        <!-- BACKEND: Replace placeholder href values with the final application routes. -->
+        <nav id="main-nav" aria-label="Main navigation">
+          <a class="nav-link" href="Home.html">Home</a>
+          <a class="nav-link active" href="BuildPc.html" aria-current="page">Build PC</a>
+          <a class="nav-link" href="Component.html">Components</a>
+          <a class="nav-link" href="#">Prebuilt PCs</a>
+          <a class="nav-link" href="#">Deals</a>
+          <a class="nav-link" href="#">Support</a>
+        </nav>
+
+        <!-- BACKEND: Connect this search field to the component/product search endpoint. -->
+        <form id="header-search" action="#" method="get" role="search" data-show-loading data-loading-message="Searching products...">
+          <label id="header-search-label" for="site-search">Search components and brands</label>
+          <input id="site-search" name="search" type="search" placeholder="Search components, brands..." />
+          <button type="submit" aria-label="Search"><span id="search-icon" aria-hidden="true"></span></button>
+        </form>
+
+        <div id="header-actions">
+          <button id="mobile-menu-button" type="button" aria-label="Open navigation menu" aria-controls="main-nav" aria-expanded="false">
+            <span class="mobile-menu-line" aria-hidden="true"></span>
+            <span class="mobile-menu-line" aria-hidden="true"></span>
+            <span class="mobile-menu-line" aria-hidden="true"></span>
+          </button>
+          <!-- BACKEND: Connect this link to the current user's cart page. -->
+          <a class="icon-button" href="#" aria-label="Shopping cart" data-tooltip="Cart">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 3h3l2.2 12h11.6L21 7H6"></path><circle cx="9" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle>
+            </svg>
+          </a>
+          <!-- BACKEND: Send guests to Login.html and authenticated users to Account.html. -->
+          <a class="icon-button" href="Login.html" aria-label="Sign in to your account" data-tooltip="Account">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"></circle><path d="M4 22v-3a8 8 0 0 1 16 0v3"></path></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="build-pc-page">
+      <nav id="build-breadcrumb" aria-label="Breadcrumb">
+        <a href="Home.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Build PC</span>
+      </nav>
+
+      <section id="builder-heading" aria-labelledby="page-title">
+        <div id="builder-heading-copy">
+          <p id="builder-eyebrow">PC CONFIGURATOR</p>
+          <h1 id="page-title">Build Your PC</h1>
+          <p id="page-intro">Choose compatible components and create a PC that fits your needs and budget.</p>
+
+          <label id="hide-unconfigured-option">
+            <input id="hide-unconfigured" name="hide_unconfigured" type="checkbox" />
+            <span>Hide unconfigured components</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- BACKEND: Set this action to the save/cart build endpoint and render a valid CSRF token. -->
+      <form id="build-form" action="#" method="post" data-show-loading data-loading-message="Adding your build to cart...">
+        <input id="build-csrf-token" name="csrf_token" type="hidden" value="" />
+      <div id="builder-layout">
+        <section id="component-list-card" aria-labelledby="core-components-heading">
+          <h2 id="core-components-heading">Core Components</h2>
+
+          <!-- BACKEND: For every row, provide trusted product IDs and prices when restoring a saved build. BuildPcScript.js handles the frontend Choose/Change navigation and session selection. -->
+          <!-- These local icons identify component categories; keep them when replacing selected product details. -->
+          <div id="component-list">
+            <article id="processor-component-row" data-component-type="processor" data-selected="false" data-required="true">
+              <input id="processor-product-id" name="processor_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/processor.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>Processor</h3><span class="required-badge">Required</span></div><p id="processor-selection">No component selected</p></div>
+              <strong id="processor-price">৳0</strong>
+              <button id="processor-choose-button" type="button">Choose</button>
+            </article>
+
+            <article id="motherboard-component-row" data-component-type="motherboard" data-selected="false" data-required="true">
+              <input id="motherboard-product-id" name="motherboard_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/motherboard.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>Motherboard</h3><span class="required-badge">Required</span></div><p id="motherboard-selection">No component selected</p></div>
+              <strong id="motherboard-price">৳0</strong>
+              <button id="motherboard-choose-button" type="button">Choose</button>
+            </article>
+
+            <article id="ram-component-row" data-component-type="ram" data-selected="false" data-required="true">
+              <input id="ram-product-id" name="ram_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/ram.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>RAM</h3><span class="required-badge">Required</span></div><p id="ram-selection">No component selected</p></div>
+              <strong id="ram-price">৳0</strong>
+              <button id="ram-choose-button" type="button">Choose</button>
+            </article>
+
+            <article id="graphics-card-component-row" data-component-type="graphics-card" data-selected="false" data-required="false">
+              <input id="graphics-card-product-id" name="graphics_card_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/graphics-card.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>Graphics Card</h3><span class="optional-badge">Optional</span></div><p id="graphics-card-selection">No component selected</p></div>
+              <strong id="graphics-card-price">৳0</strong>
+              <button id="graphics-card-choose-button" type="button">Choose</button>
+            </article>
+
+            <article id="ssd-component-row" data-component-type="ssd" data-selected="false" data-required="true">
+              <input id="ssd-product-id" name="ssd_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/ssd.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>SSD</h3><span class="required-badge">Required</span></div><p id="ssd-selection">No component selected</p></div>
+              <strong id="ssd-price">৳0</strong>
+              <button id="ssd-choose-button" type="button">Choose</button>
+            </article>
+
+            <article id="hard-disk-component-row" data-component-type="hard-disk" data-selected="false" data-required="false">
+              <input id="hard-disk-product-id" name="hard_disk_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/hard-disk.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>Hard Disk</h3><span class="optional-badge">Optional</span></div><p id="hard-disk-selection">No component selected</p></div>
+              <strong id="hard-disk-price">৳0</strong>
+              <button id="hard-disk-choose-button" type="button">Choose</button>
+            </article>
+
+            <article id="power-supply-component-row" data-component-type="power-supply" data-selected="false" data-required="true">
+              <input id="power-supply-product-id" name="power_supply_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/power-supply.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>Power Supply</h3><span class="required-badge">Required</span></div><p id="power-supply-selection">No component selected</p></div>
+              <strong id="power-supply-price">৳0</strong>
+              <button id="power-supply-choose-button" type="button">Choose</button>
+            </article>
+
+            <article id="processor-cooler-component-row" data-component-type="processor-cooler" data-selected="false" data-required="false">
+              <input id="processor-cooler-product-id" name="processor_cooler_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/processor-cooler.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>Processor Cooler</h3><span class="optional-badge">Optional</span></div><p id="processor-cooler-selection">No component selected</p></div>
+              <strong id="processor-cooler-price">৳0</strong>
+              <button id="processor-cooler-choose-button" type="button">Choose</button>
+            </article>
+
+            <article id="casing-component-row" data-component-type="casing" data-selected="false" data-required="true">
+              <input id="casing-product-id" name="casing_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/casing.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>Casing</h3><span class="required-badge">Required</span></div><p id="casing-selection">No component selected</p></div>
+              <strong id="casing-price">৳0</strong>
+              <button id="casing-choose-button" type="button">Choose</button>
+            </article>
+
+            <article id="casing-fans-component-row" data-component-type="casing-fans" data-selected="false" data-required="false">
+              <input id="casing-fans-product-id" name="casing_fans_product_id" type="hidden" value="" />
+              <span class="component-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/casing-fans.png" alt="" width="36" height="36" /></span>
+              <div class="component-copy"><div class="component-heading"><h3>Casing Fans</h3><span class="optional-badge">Optional</span></div><p id="casing-fans-selection">No component selected</p></div>
+              <strong id="casing-fans-price">৳0</strong>
+              <button id="casing-fans-choose-button" type="button">Choose</button>
+            </article>
+          </div>
+        </section>
+
+        <div id="summary-column">
+          <aside id="selected-components-card" aria-label="Selected components">
+            <span id="selected-components-icon" aria-hidden="true"><img src="../Images/BuildPc_icons/selected-components.png" alt="" width="36" height="36" /></span>
+            <span>Selected Components<strong><span id="selected-count-large">0</span>/10</strong></span>
+          </aside>
+
+          <aside id="build-summary" aria-labelledby="build-summary-heading">
+            <h2 id="build-summary-heading">Build Summary</h2>
+
+          <!-- BACKEND: Recalculate these values on the server from trusted product prices before checkout. -->
+          <div id="summary-selected-row"><span>Components Selected</span><strong><span id="selected-count-summary">0</span> of 10</strong></div>
+          <div id="summary-subtotal-row"><span>Components Subtotal</span><strong id="components-subtotal">৳0</strong></div>
+          <div id="summary-service-row"><span>Build Service Fee <small title="Fee for assembling and testing the PC">i</small></span><strong id="build-service-fee">৳0</strong></div>
+          <div id="summary-delivery-row"><span>Delivery Fee <small title="Delivery cost depends on the checkout address">i</small></span><strong id="delivery-fee">Calculated at checkout</strong></div>
+          <div id="summary-total-row"><span>Total</span><strong id="build-total">৳0</strong></div>
+
+          <!-- BACKEND: Show this message if required parts are missing, selected products are unavailable, or the server finds an incompatible build. BuildPcScript.js checks only the required frontend rows. -->
+          <p id="build-form-error" role="alert" aria-live="polite" hidden>Select all required components before continuing.</p>
+
+          <!-- BACKEND: Enable this button only after all required parts are selected, then validate compatibility and add the complete build to the cart. -->
+          <button id="add-build-to-cart" name="build_action" value="add_to_cart" type="submit" disabled>Add Build to Cart</button>
+
+          <!-- BACKEND: Save selected product IDs for the signed-in user. Keep this disabled when no component has been selected. -->
+          <button id="save-build" name="build_action" value="save" type="submit" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.5L6 21V4.5Z"></path>
+            </svg>
+            <span>Save Build</span>
+          </button>
+
+            <p id="build-requirement-message"><span aria-hidden="true">i</span>Select all required components to continue.</p>
+          </aside>
+        </div>
+      </div>
+      </form>
+    </main>
+
+    <footer id="site-footer">
+      <div id="footer-content">
+        <section id="footer-contact" aria-labelledby="footer-contact-heading">
+          <h2 id="footer-contact-heading">Contact Us</h2>
+          <!-- BACKEND: Replace these contact values with the official support phone, email, and address. -->
+          <address id="footer-contact-list">
+            <a href="tel:+8801000000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 4h4l2 5-3 2a16 16 0 0 0 5 5l2-3 5 2v4c0 1.1-.9 2-2 2C9.7 21 3 14.3 3 6c0-1.1.9-2 2-2Z"></path>
+              </svg>
+              <span>+880 1XXX-XXXXXX</span>
+            </a>
+            <a href="mailto:support@thriftbuild.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m4 7 8 6 8-6"></path>
+              </svg>
+              <span>support@thriftbuild.com</span>
+            </a>
+            <p>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+              <span>Dhaka, Bangladesh</span>
+            </p>
+          </address>
+        </section>
+
+        <section id="footer-social" aria-labelledby="footer-social-heading">
+          <h2 id="footer-social-heading">Follow Us</h2>
+          <p>Stay connected for new products, deals, and PC-building tips.</p>
+          <div id="footer-social-links">
+            <!-- BACKEND: Replace these href placeholders with the official social profile URLs. -->
+            <a id="social-facebook" href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M14 8h4V3h-4c-3.3 0-6 2.7-6 6v3H4v5h4v5h5v-5h4l1-5h-5V9c0-.6.4-1 1-1Z"></path>
+              </svg>
+            </a>
+            <a id="social-instagram" href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+            </a>
+            <a id="social-youtube" href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17 5.6 12 5.6 12 5.6s-5 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 2.6 12c0 1.3.1 2.6.4 3.8a3 3 0 0 0 2.1 2.1c1.9.5 6.9.5 6.9.5s5 0 6.9-.5a3 3 0 0 0 2.1-2.1c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8Z"></path>
+                <path d="m10 9 5 3-5 3Z"></path>
+              </svg>
+            </a>
+          </div>
+        </section>
+
+        <section id="footer-about" aria-labelledby="footer-about-heading">
+          <h2 id="footer-about-heading">About Us</h2>
+          <p>
+            ThriftBuild helps people find reliable PC components and build the
+            right computer for their needs and budget.
+          </p>
+          <!-- BACKEND: Connect each policy link to its final content page. -->
+          <nav id="footer-links" aria-label="Footer navigation">
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+          </nav>
+        </section>
+      </div>
+
+      <div id="footer-bottom">
+        <a href="Home.html" id="footer-brand" aria-label="ThriftBuild home">
+          <span id="footer-brand-mark">TB</span>
+          <span>Thrift<span>Build</span></span>
+        </a>
+        <p>&copy; 2026 ThriftBuild. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../js/BuildPcScript.js"></script>
+  </body>
+</html>

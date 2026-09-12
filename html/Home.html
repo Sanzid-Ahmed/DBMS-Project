@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThriftBuild | Home</title>
+    <link rel="stylesheet" href="../css/HomeStyle.css" />
+    <link rel="stylesheet" href="../css/LoadingState.css" />
+    <script src="../js/LoadingState.js" defer></script>
+  </head>
+
+  <body>
+    <header id="site-header">
+      <div id="header-inner">
+        <a id="brand" href="Home.html" aria-label="ThriftBuild home">
+          <span id="brand-mark">TB</span>
+          <span id="brand-name">Thrift<span>Build</span></span>
+        </a>
+
+        <!-- BACKEND: Replace placeholder href values with the final application routes. -->
+        <nav id="main-nav" aria-label="Main navigation">
+          <a class="nav-link active" href="Home.html" aria-current="page">Home</a>
+          <a class="nav-link" href="BuildPc.html">Build PC</a>
+          <a class="nav-link" href="Component.html">Components</a>
+          <a class="nav-link" href="#">Prebuilt PCs</a>
+          <a class="nav-link" href="#">Deals</a>
+          <a class="nav-link" href="#">Support</a>
+        </nav>
+
+        <!-- BACKEND: Connect this search field to the component/product search endpoint. -->
+        <form id="header-search" action="#" method="get" role="search" data-show-loading data-loading-message="Searching products...">
+          <label id="header-search-label" for="site-search">Search components and brands</label>
+          <input
+            id="site-search"
+            name="search"
+            type="search"
+            placeholder="Search components, brands..."
+          />
+          <button type="submit" aria-label="Search">
+            <span id="search-icon" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <div id="header-actions">
+          <button id="mobile-menu-button" type="button" aria-label="Open navigation menu" aria-controls="main-nav" aria-expanded="false">
+            <span class="mobile-menu-line" aria-hidden="true"></span>
+            <span class="mobile-menu-line" aria-hidden="true"></span>
+            <span class="mobile-menu-line" aria-hidden="true"></span>
+          </button>
+          <!-- BACKEND: Connect the cart link to the current user's cart page. -->
+          <a class="icon-button" href="#" aria-label="Shopping cart" data-tooltip="Cart">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 3h3l2.2 12h11.6L21 7H6"></path>
+              <circle cx="9" cy="20" r="1"></circle>
+              <circle cx="18" cy="20" r="1"></circle>
+            </svg>
+          </a>
+
+          <!-- BACKEND: Send guests to Login.html and authenticated users to Account.html. -->
+          <a class="icon-button" href="Login.html" aria-label="Sign in to your account" data-tooltip="Account">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M4 22v-3a8 8 0 0 1 16 0v3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- BACKEND: Render each featured banner URL here and provide useful alt text when the image contains information not repeated elsewhere. -->
+    <section id="hero-slider" aria-label="Featured builds">
+      <div id="slider-track">
+        <img
+          class="slide active"
+          src="../Images/Home_images/banner-gaming.png"
+          alt=""
+          width="2056"
+          height="765"
+        />
+        <img
+          class="slide"
+          src="../Images/Home_images/banner-productivity.png"
+          alt=""
+          width="2048"
+          height="768"
+        />
+        <img
+          class="slide"
+          src="../Images/Home_images/banner-everyday.png"
+          alt=""
+          width="2048"
+          height="768"
+        />
+        <img
+          class="slide"
+          src="../Images/Home_images/banner-creative.png"
+          alt=""
+          width="2055"
+          height="765"
+        />
+        <img
+          class="slide"
+          src="../Images/Home_images/banner-heavy-workloads.png"
+          alt=""
+          width="1983"
+          height="793"
+        />
+      </div>
+
+      <button id="previous" type="button" aria-label="Previous image">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M19 12H5m7-7-7 7 7 7"></path>
+        </svg>
+      </button>
+      <button id="next" type="button" aria-label="Next image">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M5 12h14m-7-7 7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <!-- FRONTEND: HomeScript.js creates one navigation dot for every banner image. -->
+      <div id="slider-dots" aria-label="Choose a featured build"></div>
+    </section>
+
+    <section id="pc-options" aria-label="Find your next PC">
+      <article id="prebuild-promo" aria-labelledby="prebuild-heading">
+        <div class="prebuild-promo-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" focusable="false">
+            <path d="m20 3 15 8v18l-15 8-15-8V11Z"></path>
+            <path d="m5 11 15 8 15-8M20 19v18M12.5 7l15 8v7l-7.5 4"></path>
+            <path d="m12 23 3 1.6"></path>
+          </svg>
+        </div>
+
+        <div class="prebuild-promo-copy">
+          <h2 id="prebuild-heading">Not sure what to build?</h2>
+          <p>Explore pre-built PCs, curated for every need and budget.</p>
+        </div>
+
+        <!-- BACKEND: Replace this href with the prebuilt-PC listing route. -->
+        <a class="prebuild-promo-link" href="#">
+          <span>Try a Pre-Build</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 12h14m-6-6 6 6-6 6"></path>
+          </svg>
+        </a>
+      </article>
+
+      <article id="custom-build-promo" aria-labelledby="custom-build-heading">
+        <div class="prebuild-promo-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" focusable="false">
+            <rect x="6" y="4" width="28" height="32" rx="4"></rect>
+            <path d="M12 13h16M12 22h16M12 30h16"></path>
+            <path d="M17 10v6M25 19v6M18 27v6"></path>
+          </svg>
+        </div>
+
+        <div class="prebuild-promo-copy">
+          <h2 id="custom-build-heading">Build it your way</h2>
+          <p>Choose your own components and build a PC that fits your needs and budget.</p>
+        </div>
+
+        <!-- BACKEND: Connect this link to the custom PC builder route. -->
+        <a class="prebuild-promo-link" href="BuildPc.html">
+          <span>Build Your PC</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 12h14m-6-6 6 6-6 6"></path>
+          </svg>
+        </a>
+      </article>
+    </section>
+
+    <section id="hot-deals" aria-labelledby="hot-deals-heading">
+      <div id="hot-deals-header">
+        <div>
+          <h2 id="hot-deals-heading">Hot <span>Deals</span></h2>
+          <p>Great components. Better prices.</p>
+        </div>
+        <!-- BACKEND: Replace this href with the complete deals-page route. -->
+        <a id="hot-deals-view-all" href="#">
+          View All Deals
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 12h14m-6-6 6 6-6 6"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- BACKEND: Populate product-1 through product-5 with the five current hot-deal records. Set each data-product-id to the database product ID. -->
+      <ul id="hot-deals-grid">
+        <!-- BACKEND: For each product, replace its detail link, image URL and alt text, save amount, name, discounted price, and original price using the matching product-N IDs. -->
+        <li id="product-1" data-product-id=""><a id="product-1-link" href="#" aria-label="View product details">
+          <div id="product-1-media"><span id="product-1-save-amount">Save ৳ 4,000</span><img id="product-1-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" /></div>
+          <div id="product-1-details"><h3 id="product-1-name">Product Name</h3><div id="product-1-prices"><span id="product-1-discounted-price">৳ 00,000</span><span id="product-1-original-price"><del>৳ 00,000</del></span></div></div>
+        </a></li>
+        <li id="product-2" data-product-id=""><a id="product-2-link" href="#" aria-label="View product details">
+          <div id="product-2-media"><span id="product-2-save-amount">Save ৳ 7,600</span><img id="product-2-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" /></div>
+          <div id="product-2-details"><h3 id="product-2-name">Product Name</h3><div id="product-2-prices"><span id="product-2-discounted-price">৳ 00,000</span><span id="product-2-original-price"><del>৳ 00,000</del></span></div></div>
+        </a></li>
+        <li id="product-3" data-product-id=""><a id="product-3-link" href="#" aria-label="View product details">
+          <div id="product-3-media"><span id="product-3-save-amount">Save ৳ 2,700</span><img id="product-3-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" /></div>
+          <div id="product-3-details"><h3 id="product-3-name">Product Name</h3><div id="product-3-prices"><span id="product-3-discounted-price">৳ 00,000</span><span id="product-3-original-price"><del>৳ 00,000</del></span></div></div>
+        </a></li>
+        <li id="product-4" data-product-id=""><a id="product-4-link" href="#" aria-label="View product details">
+          <div id="product-4-media"><span id="product-4-save-amount">Save ৳ 2,300</span><img id="product-4-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" /></div>
+          <div id="product-4-details"><h3 id="product-4-name">Product Name</h3><div id="product-4-prices"><span id="product-4-discounted-price">৳ 00,000</span><span id="product-4-original-price"><del>৳ 00,000</del></span></div></div>
+        </a></li>
+        <li id="product-5" data-product-id=""><a id="product-5-link" href="#" aria-label="View product details">
+          <div id="product-5-media"><span id="product-5-save-amount">Save ৳ 2,000</span><img id="product-5-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" /></div>
+          <div id="product-5-details"><h3 id="product-5-name">Product Name</h3><div id="product-5-prices"><span id="product-5-discounted-price">৳ 00,000</span><span id="product-5-original-price"><del>৳ 00,000</del></span></div></div>
+        </a></li>
+      </ul>
+    </section>
+
+    <section id="shopping-benefits" aria-labelledby="shopping-benefits-heading">
+      <h2 id="shopping-benefits-heading">Why shop with ThriftBuild</h2>
+
+      <article class="benefit-item">
+        <div class="benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" focusable="false">
+            <path d="M3 7h17v16H3Z"></path>
+            <path d="M20 13h5l4 5v5h-9ZM8 26a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM24 26a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3>Nationwide Delivery</h3>
+          <p>Right to your doorstep</p>
+        </div>
+      </article>
+
+      <article class="benefit-item">
+        <div class="benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" focusable="false">
+            <path d="m16 3 11 4v8c0 7-4.6 11.8-11 14-6.4-2.2-11-7-11-14V7Z"></path>
+            <path d="m11 16 3 3 7-7"></path>
+          </svg>
+        </div>
+        <div>
+          <h3>Genuine Products</h3>
+          <p>From trusted sellers</p>
+        </div>
+      </article>
+
+      <article class="benefit-item">
+        <div class="benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" focusable="false">
+            <path d="M4 5h12l12 12-11 11L5 16Z"></path>
+            <circle cx="11" cy="11" r="2"></circle>
+          </svg>
+        </div>
+        <div>
+          <h3>Best Prices</h3>
+          <p>Across Bangladesh</p>
+        </div>
+      </article>
+
+      <article class="benefit-item">
+        <div class="benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" focusable="false">
+            <path d="M5 18v-3a11 11 0 0 1 22 0v3"></path>
+            <path d="M5 17h4v8H7a2 2 0 0 1-2-2ZM27 17h-4v8h2a2 2 0 0 0 2-2ZM23 25c-1 3-4 4-7 4"></path>
+          </svg>
+        </div>
+        <div>
+          <h3>Dedicated Support</h3>
+          <p>Before and after purchase</p>
+        </div>
+      </article>
+    </section>
+
+    <footer id="site-footer">
+      <div id="footer-content">
+        <section id="footer-contact" aria-labelledby="footer-contact-heading">
+          <h2 id="footer-contact-heading">Contact Us</h2>
+          <!-- BACKEND: Replace these contact values with the official support phone, email, and address. -->
+          <address id="footer-contact-list">
+            <a href="tel:+8801000000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 4h4l2 5-3 2a16 16 0 0 0 5 5l2-3 5 2v4c0 1.1-.9 2-2 2C9.7 21 3 14.3 3 6c0-1.1.9-2 2-2Z"></path>
+              </svg>
+              <span>+880 1XXX-XXXXXX</span>
+            </a>
+            <a href="mailto:support@thriftbuild.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m4 7 8 6 8-6"></path>
+              </svg>
+              <span>support@thriftbuild.com</span>
+            </a>
+            <p>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+              <span>Dhaka, Bangladesh</span>
+            </p>
+          </address>
+        </section>
+
+        <section id="footer-social" aria-labelledby="footer-social-heading">
+          <h2 id="footer-social-heading">Follow Us</h2>
+          <p>Stay connected for new products, deals, and PC-building tips.</p>
+          <div id="footer-social-links">
+            <!-- BACKEND: Replace these href placeholders with the official social profile URLs. -->
+            <a id="social-facebook" href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M14 8h4V3h-4c-3.3 0-6 2.7-6 6v3H4v5h4v5h5v-5h4l1-5h-5V9c0-.6.4-1 1-1Z"></path>
+              </svg>
+            </a>
+            <a id="social-instagram" href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+            </a>
+            <a id="social-youtube" href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17 5.6 12 5.6 12 5.6s-5 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 2.6 12c0 1.3.1 2.6.4 3.8a3 3 0 0 0 2.1 2.1c1.9.5 6.9.5 6.9.5s5 0 6.9-.5a3 3 0 0 0 2.1-2.1c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8Z"></path>
+                <path d="m10 9 5 3-5 3Z"></path>
+              </svg>
+            </a>
+          </div>
+        </section>
+
+        <section id="footer-about" aria-labelledby="footer-about-heading">
+          <h2 id="footer-about-heading">About Us</h2>
+          <p>
+            ThriftBuild helps people find reliable PC components and build the
+            right computer for their needs and budget.
+          </p>
+          <!-- BACKEND: Connect each policy link to its final content page. -->
+          <nav id="footer-links" aria-label="Footer navigation">
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+          </nav>
+        </section>
+      </div>
+
+      <div id="footer-bottom">
+        <a href="Home.html" id="footer-brand" aria-label="ThriftBuild home">
+          <span id="footer-brand-mark">TB</span>
+          <span>Thrift<span>Build</span></span>
+        </a>
+        <p>&copy; 2026 ThriftBuild. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../js/HomeScript.js"></script>
+  </body>
+</html>

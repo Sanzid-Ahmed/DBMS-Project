@@ -1,0 +1,64 @@
+/* Shared ThriftBuild loading state. Link this file on every page that can load data or submit a request. */
+
+#loading-state {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  padding: 24px;
+  place-items: center;
+  background: rgba(243, 248, 255, 0.82);
+  backdrop-filter: blur(3px);
+}
+
+#loading-state[hidden] {
+  display: none !important;
+}
+
+#loading-panel {
+  display: grid;
+  width: min(100%, 270px);
+  min-height: 190px;
+  padding: 28px 24px;
+  place-items: center;
+  border: 1px solid #d9e6f7;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(12, 20, 42, 0.16);
+  text-align: center;
+}
+
+#loading-spinner {
+  width: 52px;
+  height: 52px;
+  border: 5px solid #e3edff;
+  border-top-color: #0754ed;
+  border-radius: 50%;
+  animation: thrift-build-spin 800ms linear infinite;
+}
+
+#loading-message {
+  margin: 18px 0 0;
+  color: #0c142a;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#loading-submessage {
+  margin: 5px 0 0;
+  color: #526b9f;
+  font-size: 13px;
+}
+
+@keyframes thrift-build-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  #loading-panel {
+    min-height: 175px;
+    padding: 24px 20px;
+  }
+}

@@ -1,0 +1,584 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Components | ThriftBuild</title>
+    <link rel="stylesheet" href="../css/ComponentStyle.css" />
+    <link rel="stylesheet" href="../css/LoadingState.css" />
+    <script src="../js/LoadingState.js" defer></script>
+  </head>
+
+  <body>
+    <header id="site-header">
+      <div id="header-inner">
+        <a id="brand" href="Home.html" aria-label="ThriftBuild home">
+          <span id="brand-mark">TB</span>
+          <span id="brand-name">Thrift<span>Build</span></span>
+        </a>
+
+        <!-- BACKEND: Replace placeholder href values with the final application routes. -->
+        <nav id="main-nav" aria-label="Main navigation">
+          <a class="nav-link" href="Home.html">Home</a>
+          <a class="nav-link" href="BuildPc.html">Build PC</a>
+          <a class="nav-link active" href="Component.html" aria-current="page">Components</a>
+          <a class="nav-link" href="#">Prebuilt PCs</a>
+          <a class="nav-link" href="#">Deals</a>
+          <a class="nav-link" href="#">Support</a>
+        </nav>
+
+        <!-- BACKEND: Connect this search field to the component/product search endpoint. -->
+        <form id="header-search" action="#" method="get" role="search" data-show-loading data-loading-message="Loading components...">
+          <label id="header-search-label" for="site-search">Search components and brands</label>
+          <input
+            id="site-search"
+            name="search"
+            type="search"
+            placeholder="Search components, brands..."
+          />
+          <button type="submit" aria-label="Search">
+            <span class="search-icon" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <div id="header-actions">
+          <button id="mobile-menu-button" type="button" aria-label="Open navigation menu" aria-controls="main-nav" aria-expanded="false">
+            <span class="mobile-menu-line" aria-hidden="true"></span>
+            <span class="mobile-menu-line" aria-hidden="true"></span>
+            <span class="mobile-menu-line" aria-hidden="true"></span>
+          </button>
+          <!-- BACKEND: Connect this link to the current user's cart page. -->
+          <a class="icon-button" href="#" aria-label="Shopping cart" data-tooltip="Cart">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 3h3l2.2 12h11.6L21 7H6"></path>
+              <circle cx="9" cy="20" r="1"></circle>
+              <circle cx="18" cy="20" r="1"></circle>
+            </svg>
+          </a>
+
+          <!-- BACKEND: Send guests to Login.html and authenticated users to Account.html. -->
+          <a class="icon-button" href="Login.html" aria-label="Sign in to your account" data-tooltip="Account">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M4 22v-3a8 8 0 0 1 16 0v3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="components-page">
+      <nav id="breadcrumb" aria-label="Breadcrumb">
+        <a href="Home.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Components</span>
+      </nav>
+
+      <section id="components-heading" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">PC Components</h1>
+          <p>Find the right parts for your perfect build.</p>
+        </div>
+
+        <!-- BACKEND: Submit this form to the catalog search route and return matching products. -->
+        <form id="catalog-search" action="#" method="get" role="search" data-show-loading data-loading-message="Loading components...">
+          <label id="catalog-search-label" for="component-search">Search the component catalog</label>
+          <span class="search-icon" aria-hidden="true"></span>
+          <input
+            id="component-search"
+            name="search"
+            type="search"
+            placeholder="Search by component name, model, or brand..."
+          />
+          <button id="catalog-search-button" type="submit">Search</button>
+        </form>
+      </section>
+
+      <button
+        id="mobile-filter-button"
+        type="button"
+        aria-controls="filters-panel"
+        aria-expanded="false"
+      >
+        Filters
+      </button>
+
+      <div id="catalog-layout">
+        <aside id="filters-panel" aria-labelledby="filters-heading">
+          <div id="filters-heading-row">
+            <h2 id="filters-heading">Filters</h2>
+            <!-- BACKEND: Replace this href with the unfiltered component-list route. -->
+            <a id="clear-filters" href="Component.html">Clear All</a>
+          </div>
+
+          <!-- BACKEND: Read these named filter values, validate the price range again, query matching products, and return updated result/count data. -->
+          <form id="filter-form" action="#" method="get" data-show-loading data-loading-message="Loading components...">
+            <fieldset class="filter-group">
+              <legend>Category</legend>
+
+              <!-- BACKEND: Replace each 0 with the current number of products in that category. -->
+              <label class="filter-option" for="filter-processor">
+                <input id="filter-processor" name="category" type="checkbox" value="processor" />
+                <span>Processor <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-motherboard">
+                <input id="filter-motherboard" name="category" type="checkbox" value="motherboard" />
+                <span>Motherboard <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-ram">
+                <input id="filter-ram" name="category" type="checkbox" value="ram" />
+                <span>RAM <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-graphics-card">
+                <input id="filter-graphics-card" name="category" type="checkbox" value="graphics-card" />
+                <span>Graphics Card <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-ssd">
+                <input id="filter-ssd" name="category" type="checkbox" value="ssd" />
+                <span>SSD <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-hard-disk">
+                <input id="filter-hard-disk" name="category" type="checkbox" value="hard-disk" />
+                <span>Hard Disk <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-power-supply">
+                <input id="filter-power-supply" name="category" type="checkbox" value="power-supply" />
+                <span>Power Supply <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-processor-cooler">
+                <input id="filter-processor-cooler" name="category" type="checkbox" value="processor-cooler" />
+                <span>Processor Cooler <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-casing">
+                <input id="filter-casing" name="category" type="checkbox" value="casing" />
+                <span>Casing <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-casing-fans">
+                <input id="filter-casing-fans" name="category" type="checkbox" value="casing-fans" />
+                <span>Casing Fans <small class="filter-count">(0)</small></span>
+              </label>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Price Range (BDT)</legend>
+              <div id="price-fields">
+                <label for="minimum-price">
+                  <span>Minimum price</span>
+                  <input id="minimum-price" name="min_price" type="number" min="0" placeholder="0" aria-describedby="price-range-error" />
+                </label>
+                <span aria-hidden="true">to</span>
+                <label for="maximum-price">
+                  <span>Maximum price</span>
+                  <input id="maximum-price" name="max_price" type="number" min="0" placeholder="150,000" aria-describedby="price-range-error" />
+                </label>
+              </div>
+              <!-- BACKEND: Return this validation error when the minimum price exceeds the maximum price. ComponentScript.js performs only frontend validation. -->
+              <small id="price-range-error" role="alert" hidden>Minimum price cannot be greater than maximum price.</small>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Brand</legend>
+
+              <!-- BACKEND: Render available brands and replace each 0 with its current product count. -->
+              <label class="filter-option" for="filter-amd">
+                <input id="filter-amd" name="brand" type="checkbox" value="amd" />
+                <span>AMD <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-intel">
+                <input id="filter-intel" name="brand" type="checkbox" value="intel" />
+                <span>Intel <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-nvidia">
+                <input id="filter-nvidia" name="brand" type="checkbox" value="nvidia" />
+                <span>NVIDIA <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-asus">
+                <input id="filter-asus" name="brand" type="checkbox" value="asus" />
+                <span>ASUS <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-msi">
+                <input id="filter-msi" name="brand" type="checkbox" value="msi" />
+                <span>MSI <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-gigabyte">
+                <input id="filter-gigabyte" name="brand" type="checkbox" value="gigabyte" />
+                <span>Gigabyte <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-corsair">
+                <input id="filter-corsair" name="brand" type="checkbox" value="corsair" />
+                <span>Corsair <small class="filter-count">(0)</small></span>
+              </label>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Availability</legend>
+              <label class="filter-option" for="filter-in-stock">
+                <input id="filter-in-stock" name="availability" type="checkbox" value="in-stock" />
+                <span>In Stock <small class="filter-count">(0)</small></span>
+              </label>
+              <label class="filter-option" for="filter-on-sale">
+                <input id="filter-on-sale" name="availability" type="checkbox" value="on-sale" />
+                <span>On Sale <small class="filter-count">(0)</small></span>
+              </label>
+            </fieldset>
+
+            <button id="apply-filters" type="submit">Apply Filters</button>
+          </form>
+        </aside>
+
+        <section id="product-results" aria-labelledby="results-heading">
+          <div id="results-toolbar">
+            <!-- BACKEND: Replace 0 with the total number of products returned by the current query. -->
+            <h2 id="results-heading"><span id="result-count">0</span> components found</h2>
+
+            <div id="results-controls">
+              <span>View:</span>
+              <button class="view-button active" type="button" data-view="grid" aria-label="Grid view" aria-pressed="true">▦</button>
+              <button class="view-button" type="button" data-view="list" aria-label="List view" aria-pressed="false">☰</button>
+
+              <label for="sort-products">Sort by:</label>
+              <!-- BACKEND: The selected sort value is submitted with filter-form. Preserve it after returning results. -->
+              <select id="sort-products" name="sort" form="filter-form">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="newest">Newest</option>
+              </select>
+
+              <!-- BACKEND: Set compare-form's action and fill every checked value with its database product ID. -->
+              <button id="compare-selected" type="submit" form="compare-form" disabled>
+                Compare (<span id="compare-count">0</span>)
+              </button>
+            </div>
+          </div>
+
+          <!-- BACKEND: Populate these nine product slots with database IDs, exact component types, detail links, image URLs and alt text, prices, stock, ratings, and review counts. Set each article's data-product-id and data-component-type; ComponentScript.js uses them for cart, compare, and Build PC selection. More results may use the same product-N ID pattern. -->
+          <!-- BACKEND: Set data-discounted to true or false; CSS handles which price fields appear. Set data-stock to in-stock or out-of-stock and disable Add to Cart when unavailable. -->
+          <form id="compare-form" action="#" method="get" data-show-loading data-loading-message="Preparing comparison...">
+          <div id="product-grid" data-view="grid">
+            <!-- BACKEND: Discounted card example. Fill all product-1 fields and set its data-product-id and data-component-type. -->
+            <article id="product-1" data-product-id="" data-component-type="" data-discounted="true" data-stock="in-stock">
+              <a id="product-1-link" href="#" aria-label="View product 1 details">
+                <div id="product-1-media">
+                  <!-- BACKEND: Demo badge only. Replace the text with the real saved amount and keep this visible only when product-1 has a discount; otherwise add hidden. -->
+                  <span id="product-1-save-amount">Save ৳ 7,600</span>
+                  <img id="product-1-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div id="product-1-details">
+                  <span id="product-1-category">Component Category</span>
+                  <h3 id="product-1-name">Product Name</h3>
+                  <p id="product-1-specifications">Product specifications will appear here.</p>
+                  <div id="product-1-rating" aria-label="No ratings yet"><span id="product-1-rating-stars" aria-hidden="true">☆☆☆☆☆</span><span id="product-1-review-count">(0)</span></div>
+                  <span id="product-1-stock-status">Stock Status</span>
+                  <div id="product-1-prices">
+                    <span id="product-1-price">৳ 50,000</span>
+                    <strong id="product-1-discounted-price">৳ 42,400</strong>
+                  </div>
+                </div>
+              </a>
+              <div id="product-1-actions">
+                <label for="product-1-compare"><input id="product-1-compare" name="compare_product_ids" type="checkbox" value="" /> Compare</label>
+                <button id="product-1-add-to-cart" type="button" data-product-id="">Add to Cart</button>
+              </div>
+            </article>
+
+            <!-- BACKEND: Normal-price card. Fill the product-2 fields and keep only product-2-price when no discount exists. -->
+            <article id="product-2" data-product-id="" data-component-type="" data-discounted="false" data-stock="in-stock">
+              <a id="product-2-link" href="#" aria-label="View product 2 details">
+                <div id="product-2-media">
+                  <span id="product-2-save-amount">Save ৳ 0</span>
+                  <img id="product-2-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div id="product-2-details">
+                  <span id="product-2-category">Component Category</span>
+                  <h3 id="product-2-name">Product Name</h3>
+                  <p id="product-2-specifications">Product specifications will appear here.</p>
+                  <div id="product-2-rating" aria-label="No ratings yet"><span id="product-2-rating-stars" aria-hidden="true">☆☆☆☆☆</span><span id="product-2-review-count">(0)</span></div>
+                  <span id="product-2-stock-status">Stock Status</span>
+                  <div id="product-2-prices">
+                    <span id="product-2-price">৳ 00,000</span>
+                    <strong id="product-2-discounted-price">৳ 00,000</strong>
+                  </div>
+                </div>
+              </a>
+              <div id="product-2-actions">
+                <label for="product-2-compare"><input id="product-2-compare" name="compare_product_ids" type="checkbox" value="" /> Compare</label>
+                <button id="product-2-add-to-cart" type="button" data-product-id="">Add to Cart</button>
+              </div>
+            </article>
+
+            <!-- BACKEND: Fill product-3, then toggle its prepared normal/discount fields using the instructions above. -->
+            <article id="product-3" data-product-id="" data-component-type="" data-discounted="false" data-stock="in-stock">
+              <a id="product-3-link" href="#" aria-label="View product 3 details">
+                <div id="product-3-media">
+                  <span id="product-3-save-amount">Save ৳ 0</span>
+                  <img id="product-3-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div id="product-3-details">
+                  <span id="product-3-category">Component Category</span>
+                  <h3 id="product-3-name">Product Name</h3>
+                  <p id="product-3-specifications">Product specifications will appear here.</p>
+                  <div id="product-3-rating" aria-label="No ratings yet"><span id="product-3-rating-stars" aria-hidden="true">☆☆☆☆☆</span><span id="product-3-review-count">(0)</span></div>
+                  <span id="product-3-stock-status">Stock Status</span>
+                  <div id="product-3-prices">
+                    <span id="product-3-price">৳ 00,000</span>
+                    <strong id="product-3-discounted-price">৳ 00,000</strong>
+                  </div>
+                </div>
+              </a>
+              <div id="product-3-actions">
+                <label for="product-3-compare"><input id="product-3-compare" name="compare_product_ids" type="checkbox" value="" /> Compare</label>
+                <button id="product-3-add-to-cart" type="button" data-product-id="">Add to Cart</button>
+              </div>
+            </article>
+
+            <!-- BACKEND: Normal-price card. Fill the product-4 fields and keep only product-4-price when no discount exists. -->
+            <article id="product-4" data-product-id="" data-component-type="" data-discounted="false" data-stock="in-stock">
+              <a id="product-4-link" href="#" aria-label="View product 4 details">
+                <div id="product-4-media">
+                  <span id="product-4-save-amount">Save ৳ 0</span>
+                  <img id="product-4-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div id="product-4-details">
+                  <span id="product-4-category">Component Category</span>
+                  <h3 id="product-4-name">Product Name</h3>
+                  <p id="product-4-specifications">Product specifications will appear here.</p>
+                  <div id="product-4-rating" aria-label="No ratings yet"><span id="product-4-rating-stars" aria-hidden="true">☆☆☆☆☆</span><span id="product-4-review-count">(0)</span></div>
+                  <span id="product-4-stock-status">Stock Status</span>
+                  <div id="product-4-prices">
+                    <span id="product-4-price">৳ 00,000</span>
+                    <strong id="product-4-discounted-price">৳ 00,000</strong>
+                  </div>
+                </div>
+              </a>
+              <div id="product-4-actions">
+                <label for="product-4-compare"><input id="product-4-compare" name="compare_product_ids" type="checkbox" value="" /> Compare</label>
+                <button id="product-4-add-to-cart" type="button" data-product-id="">Add to Cart</button>
+              </div>
+            </article>
+
+            <!-- BACKEND: Fill product-5, then toggle its prepared normal/discount fields using the instructions above. -->
+            <article id="product-5" data-product-id="" data-component-type="" data-discounted="false" data-stock="in-stock">
+              <a id="product-5-link" href="#" aria-label="View product 5 details">
+                <div id="product-5-media">
+                  <span id="product-5-save-amount">Save ৳ 0</span>
+                  <img id="product-5-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div id="product-5-details">
+                  <span id="product-5-category">Component Category</span>
+                  <h3 id="product-5-name">Product Name</h3>
+                  <p id="product-5-specifications">Product specifications will appear here.</p>
+                  <div id="product-5-rating" aria-label="No ratings yet"><span id="product-5-rating-stars" aria-hidden="true">☆☆☆☆☆</span><span id="product-5-review-count">(0)</span></div>
+                  <span id="product-5-stock-status">Stock Status</span>
+                  <div id="product-5-prices">
+                    <span id="product-5-price">৳ 00,000</span>
+                    <strong id="product-5-discounted-price">৳ 00,000</strong>
+                  </div>
+                </div>
+              </a>
+              <div id="product-5-actions">
+                <label for="product-5-compare"><input id="product-5-compare" name="compare_product_ids" type="checkbox" value="" /> Compare</label>
+                <button id="product-5-add-to-cart" type="button" data-product-id="">Add to Cart</button>
+              </div>
+            </article>
+
+            <!-- BACKEND: Normal-price card. Fill the product-6 fields and keep only product-6-price when no discount exists. -->
+            <article id="product-6" data-product-id="" data-component-type="" data-discounted="false" data-stock="in-stock">
+              <a id="product-6-link" href="#" aria-label="View product 6 details">
+                <div id="product-6-media">
+                  <span id="product-6-save-amount">Save ৳ 0</span>
+                  <img id="product-6-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div id="product-6-details">
+                  <span id="product-6-category">Component Category</span>
+                  <h3 id="product-6-name">Product Name</h3>
+                  <p id="product-6-specifications">Product specifications will appear here.</p>
+                  <div id="product-6-rating" aria-label="No ratings yet"><span id="product-6-rating-stars" aria-hidden="true">☆☆☆☆☆</span><span id="product-6-review-count">(0)</span></div>
+                  <span id="product-6-stock-status">Stock Status</span>
+                  <div id="product-6-prices">
+                    <span id="product-6-price">৳ 00,000</span>
+                    <strong id="product-6-discounted-price">৳ 00,000</strong>
+                  </div>
+                </div>
+              </a>
+              <div id="product-6-actions">
+                <label for="product-6-compare"><input id="product-6-compare" name="compare_product_ids" type="checkbox" value="" /> Compare</label>
+                <button id="product-6-add-to-cart" type="button" data-product-id="">Add to Cart</button>
+              </div>
+            </article>
+
+            <!-- BACKEND: Fill product-7, then toggle its prepared normal/discount fields using the instructions above. -->
+            <article id="product-7" data-product-id="" data-component-type="" data-discounted="false" data-stock="in-stock">
+              <a id="product-7-link" href="#" aria-label="View product 7 details">
+                <div id="product-7-media">
+                  <span id="product-7-save-amount">Save ৳ 0</span>
+                  <img id="product-7-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div id="product-7-details">
+                  <span id="product-7-category">Component Category</span>
+                  <h3 id="product-7-name">Product Name</h3>
+                  <p id="product-7-specifications">Product specifications will appear here.</p>
+                  <div id="product-7-rating" aria-label="No ratings yet"><span id="product-7-rating-stars" aria-hidden="true">☆☆☆☆☆</span><span id="product-7-review-count">(0)</span></div>
+                  <span id="product-7-stock-status">Stock Status</span>
+                  <div id="product-7-prices">
+                    <span id="product-7-price">৳ 00,000</span>
+                    <strong id="product-7-discounted-price">৳ 00,000</strong>
+                  </div>
+                </div>
+              </a>
+              <div id="product-7-actions">
+                <label for="product-7-compare"><input id="product-7-compare" name="compare_product_ids" type="checkbox" value="" /> Compare</label>
+                <button id="product-7-add-to-cart" type="button" data-product-id="">Add to Cart</button>
+              </div>
+            </article>
+
+            <!-- BACKEND: Normal-price card. Fill the product-8 fields and keep only product-8-price when no discount exists. -->
+            <article id="product-8" data-product-id="" data-component-type="" data-discounted="false" data-stock="in-stock">
+              <a id="product-8-link" href="#" aria-label="View product 8 details">
+                <div id="product-8-media">
+                  <span id="product-8-save-amount">Save ৳ 0</span>
+                  <img id="product-8-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div id="product-8-details">
+                  <span id="product-8-category">Component Category</span>
+                  <h3 id="product-8-name">Product Name</h3>
+                  <p id="product-8-specifications">Product specifications will appear here.</p>
+                  <div id="product-8-rating" aria-label="No ratings yet"><span id="product-8-rating-stars" aria-hidden="true">☆☆☆☆☆</span><span id="product-8-review-count">(0)</span></div>
+                  <span id="product-8-stock-status">Stock Status</span>
+                  <div id="product-8-prices">
+                    <span id="product-8-price">৳ 00,000</span>
+                    <strong id="product-8-discounted-price">৳ 00,000</strong>
+                  </div>
+                </div>
+              </a>
+              <div id="product-8-actions">
+                <label for="product-8-compare"><input id="product-8-compare" name="compare_product_ids" type="checkbox" value="" /> Compare</label>
+                <button id="product-8-add-to-cart" type="button" data-product-id="">Add to Cart</button>
+              </div>
+            </article>
+
+            <!-- BACKEND: Fill product-9, then toggle its prepared normal/discount fields using the instructions above. -->
+            <article id="product-9" data-product-id="" data-component-type="" data-discounted="false" data-stock="in-stock">
+              <a id="product-9-link" href="#" aria-label="View product 9 details">
+                <div id="product-9-media">
+                  <span id="product-9-save-amount">Save ৳ 0</span>
+                  <img id="product-9-image" src="../Images/Home_images/product-image-placeholder.png" alt="Product image" width="1254" height="1254" loading="lazy" decoding="async" />
+                </div>
+                <div id="product-9-details">
+                  <span id="product-9-category">Component Category</span>
+                  <h3 id="product-9-name">Product Name</h3>
+                  <p id="product-9-specifications">Product specifications will appear here.</p>
+                  <div id="product-9-rating" aria-label="No ratings yet"><span id="product-9-rating-stars" aria-hidden="true">☆☆☆☆☆</span><span id="product-9-review-count">(0)</span></div>
+                  <span id="product-9-stock-status">Stock Status</span>
+                  <div id="product-9-prices">
+                    <span id="product-9-price">৳ 00,000</span>
+                    <strong id="product-9-discounted-price">৳ 00,000</strong>
+                  </div>
+                </div>
+              </a>
+              <div id="product-9-actions">
+                <label for="product-9-compare"><input id="product-9-compare" name="compare_product_ids" type="checkbox" value="" /> Compare</label>
+                <button id="product-9-add-to-cart" type="button" data-product-id="">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+          </form>
+
+          <!-- BACKEND: Render page links from the catalog pagination data and keep the current page marked active. -->
+          <nav id="pagination" aria-label="Product pages">
+            <a class="page-link" href="#" aria-label="Previous page">&larr;</a>
+            <a class="page-link active" href="#" aria-current="page">1</a>
+            <a class="page-link" href="#">2</a>
+            <a class="page-link" href="#">3</a>
+            <span>...</span>
+            <a class="page-link" href="#">10</a>
+            <a class="page-link" href="#" aria-label="Next page">&rarr;</a>
+          </nav>
+        </section>
+      </div>
+    </main>
+
+    <footer id="site-footer">
+      <div id="footer-content">
+        <section id="footer-contact" aria-labelledby="footer-contact-heading">
+          <h2 id="footer-contact-heading">Contact Us</h2>
+          <!-- BACKEND: Replace these contact values with the official support phone, email, and address. -->
+          <address id="footer-contact-list">
+            <a href="tel:+8801000000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 4h4l2 5-3 2a16 16 0 0 0 5 5l2-3 5 2v4c0 1.1-.9 2-2 2C9.7 21 3 14.3 3 6c0-1.1.9-2 2-2Z"></path>
+              </svg>
+              <span>+880 1XXX-XXXXXX</span>
+            </a>
+            <a href="mailto:support@thriftbuild.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m4 7 8 6 8-6"></path>
+              </svg>
+              <span>support@thriftbuild.com</span>
+            </a>
+            <p>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+              <span>Dhaka, Bangladesh</span>
+            </p>
+          </address>
+        </section>
+
+        <section id="footer-social" aria-labelledby="footer-social-heading">
+          <h2 id="footer-social-heading">Follow Us</h2>
+          <p>Stay connected for new products, deals, and PC-building tips.</p>
+          <div id="footer-social-links">
+            <!-- BACKEND: Replace these href placeholders with the official social profile URLs. -->
+            <a id="social-facebook" href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M14 8h4V3h-4c-3.3 0-6 2.7-6 6v3H4v5h4v5h5v-5h4l1-5h-5V9c0-.6.4-1 1-1Z"></path>
+              </svg>
+            </a>
+            <a id="social-instagram" href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+            </a>
+            <a id="social-youtube" href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17 5.6 12 5.6 12 5.6s-5 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 2.6 12c0 1.3.1 2.6.4 3.8a3 3 0 0 0 2.1 2.1c1.9.5 6.9.5 6.9.5s5 0 6.9-.5a3 3 0 0 0 2.1-2.1c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8Z"></path>
+                <path d="m10 9 5 3-5 3Z"></path>
+              </svg>
+            </a>
+          </div>
+        </section>
+
+        <section id="footer-about" aria-labelledby="footer-about-heading">
+          <h2 id="footer-about-heading">About Us</h2>
+          <p>
+            ThriftBuild helps people find reliable PC components and build the
+            right computer for their needs and budget.
+          </p>
+          <!-- BACKEND: Connect each policy link to its final content page. -->
+          <nav id="footer-links" aria-label="Footer navigation">
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+          </nav>
+        </section>
+      </div>
+
+      <div id="footer-bottom">
+        <a href="Home.html" id="footer-brand" aria-label="ThriftBuild home">
+          <span id="footer-brand-mark">TB</span>
+          <span>Thrift<span>Build</span></span>
+        </a>
+        <p>&copy; 2026 ThriftBuild. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../js/ComponentScript.js"></script>
+  </body>
+</html>
+

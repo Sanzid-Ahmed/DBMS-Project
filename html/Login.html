@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | ThriftBuild</title>
+    <link rel="stylesheet" href="../css/LoginStyle.css" />
+    <link rel="stylesheet" href="../css/LoadingState.css" />
+    <script src="../js/LoadingState.js" defer></script>
+    <script src="../js/LoginScript.js" defer></script>
+  </head>
+
+  <body>
+    <main id="login-page">
+      <section id="login-intro" aria-labelledby="login-intro-heading">
+        <a id="login-brand" href="Home.html" aria-label="ThriftBuild home">
+          <span id="login-brand-mark">TB</span>
+          <span id="login-brand-name">Thrift<span>Build</span></span>
+        </a>
+
+        <h1 id="login-intro-heading">Build smarter. Play harder.</h1>
+        <p id="login-intro-text">
+          Build the perfect PC based on your budget, performance needs, and
+          preferred components.
+        </p>
+
+        <ul id="login-benefits">
+          <li>
+            <span aria-hidden="true">&#10003;</span>
+            Budget-optimized PC builds
+          </li>
+          <li>
+            <span aria-hidden="true">&#10003;</span>
+            Custom component selection
+          </li>
+          <li>
+            <span aria-hidden="true">&#10003;</span>
+            Performance analysis
+          </li>
+          <li>
+            <span aria-hidden="true">&#10003;</span>
+            Smart upgrade recommendations
+          </li>
+        </ul>
+      </section>
+
+      <section id="login-card" aria-labelledby="login-heading">
+        <header id="login-card-header">
+          <p id="login-eyebrow">Welcome back</p>
+          <h2 id="login-heading">Login to ThriftBuild</h2>
+          <p>Enter your credentials to continue.</p>
+        </header>
+
+        <!-- BACKEND: Set the form action, repeat all frontend validation, validate the credentials, create the user session, and redirect successful logins to Account.html. -->
+        <form id="login-form" action="#" method="post" data-show-loading data-loading-message="Signing you in..." novalidate>
+          <!-- BACKEND: Render the framework's CSRF token here. For rejected credentials, keep the entered email, show login-form-error, and do not reveal whether the email exists. -->
+          <input id="login-csrf-token" name="csrf_token" type="hidden" value="" />
+          <p id="login-form-error" role="alert" aria-live="polite" hidden>Unable to log in. Please check your details.</p>
+          <!-- BACKEND: For a field error, set aria-invalid to true and remove hidden from its matching error message. LoginScript.js performs only frontend checks; the server must validate again. -->
+
+          <fieldset id="login-role">
+            <legend id="login-role-label">Account type</legend>
+
+            <!-- BACKEND: Verify account permissions on the server; do not trust this selected role by itself. -->
+            <input type="radio" name="account_type" id="login-user" value="user" checked />
+            <label for="login-user">User</label>
+
+            <input type="radio" name="account_type" id="login-admin" value="admin" />
+            <label for="login-admin">Admin</label>
+          </fieldset>
+
+          <div class="form-field">
+            <label for="login-email">Email</label>
+            <div class="input-wrap">
+              <input
+                type="email"
+                id="login-email"
+                name="email"
+                placeholder="example@gmail.com"
+                autocomplete="email"
+                aria-describedby="login-email-error"
+                required
+              />
+            </div>
+            <!-- BACKEND: Fill and show this message when the email field is invalid. -->
+            <small id="login-email-error" role="alert" hidden>Please enter a valid email address.</small>
+          </div>
+
+          <div class="form-field">
+            <label for="login-password">Password</label>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="login-password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                aria-describedby="login-password-error"
+                required
+              />
+            </div>
+            <!-- BACKEND: Fill and show this message when the password field is invalid. -->
+            <small id="login-password-error" role="alert" hidden>Please enter your password.</small>
+          </div>
+
+          <div id="login-form-options">
+            <label id="remember-option">
+              <input id="login-remember-me" type="checkbox" name="remember_me" value="true" />
+              <span>Remember me</span>
+            </label>
+            <!-- BACKEND: Replace this href with the password-recovery route. -->
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button id="login-submit" type="submit">Login</button>
+        </form>
+
+        <p id="signup-prompt">
+          Don&rsquo;t have an account?
+          <a href="Signup.html">Create account</a>
+        </p>
+      </section>
+    </main>
+    <footer id="site-footer">
+      <div id="footer-content">
+        <section id="footer-contact" aria-labelledby="footer-contact-heading">
+          <h2 id="footer-contact-heading">Contact Us</h2>
+          <!-- BACKEND: Replace these contact values with the official support phone, email, and address. -->
+          <address id="footer-contact-list">
+            <a href="tel:+8801000000000">
+              <span class="footer-contact-symbol" aria-hidden="true">☎</span>
+              <span>+880 1XXX-XXXXXX</span>
+            </a>
+            <a href="mailto:support@thriftbuild.com">
+              <span class="footer-contact-symbol" aria-hidden="true">@</span>
+              <span>support@thriftbuild.com</span>
+            </a>
+            <p>
+              <span class="footer-contact-symbol" aria-hidden="true">⌖</span>
+              <span>Dhaka, Bangladesh</span>
+            </p>
+          </address>
+        </section>
+
+        <section id="footer-social" aria-labelledby="footer-social-heading">
+          <h2 id="footer-social-heading">Follow Us</h2>
+          <p>Stay connected for new products, deals, and PC-building tips.</p>
+          <div id="footer-social-links">
+            <!-- BACKEND: Replace these href placeholders with the official social profile URLs. -->
+            <a id="social-facebook" href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M14 8h4V3h-4c-3.3 0-6 2.7-6 6v3H4v5h4v5h5v-5h4l1-5h-5V9c0-.6.4-1 1-1Z"></path>
+              </svg>
+            </a>
+            <a id="social-instagram" href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+            </a>
+            <a id="social-youtube" href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17 5.6 12 5.6 12 5.6s-5 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 2.6 12c0 1.3.1 2.6.4 3.8a3 3 0 0 0 2.1 2.1c1.9.5 6.9.5 6.9.5s5 0 6.9-.5a3 3 0 0 0 2.1-2.1c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8Z"></path>
+                <path d="m10 9 5 3-5 3Z"></path>
+              </svg>
+            </a>
+          </div>
+        </section>
+
+        <section id="footer-about" aria-labelledby="footer-about-heading">
+          <h2 id="footer-about-heading">About Us</h2>
+          <p>
+            ThriftBuild helps people find reliable PC components and build the
+            right computer for their needs and budget.
+          </p>
+          <!-- BACKEND: Connect each policy link to its final content page. -->
+          <nav id="footer-links" aria-label="Footer navigation">
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+          </nav>
+        </section>
+      </div>
+
+      <div id="footer-bottom">
+        <a href="Home.html" id="footer-brand" aria-label="ThriftBuild home">
+          <span id="footer-brand-mark">TB</span>
+          <span>Thrift<span>Build</span></span>
+        </a>
+        <p>&copy; 2026 ThriftBuild. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
