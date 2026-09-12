@@ -1,3 +1,14 @@
+:root {
+  --page-bg: #F6F7F7;
+  --surface: #FFFFFF;
+  --text: #1F2933;
+  --secondary-text: #586570;
+  --primary: #006D77;
+  --primary-hover: #00545C;
+  --link: #087F8C;
+  --border: #DCE2E3;
+  --deal: #D9363E;
+}
 /* Shared ThriftBuild loading state. Link this file on every page that can load data or submit a request. */
 
 #loading-state {
@@ -7,7 +18,7 @@
   display: grid;
   padding: 24px;
   place-items: center;
-  background: rgba(243, 248, 255, 0.82);
+  background: rgba(246, 247, 247, 0.82);
   backdrop-filter: blur(3px);
 }
 
@@ -21,32 +32,32 @@
   min-height: 190px;
   padding: 28px 24px;
   place-items: center;
-  border: 1px solid #d9e6f7;
+  border: 1px solid var(--border);
   border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 18px 45px rgba(12, 20, 42, 0.16);
+  background: var(--surface);
+  box-shadow: 0 18px 45px rgba(31, 41, 51, 0.16);
   text-align: center;
 }
 
 #loading-spinner {
   width: 52px;
   height: 52px;
-  border: 5px solid #e3edff;
-  border-top-color: #0754ed;
+  border: 5px solid var(--page-bg);
+  border-top-color: var(--primary);
   border-radius: 50%;
   animation: thrift-build-spin 800ms linear infinite;
 }
 
 #loading-message {
   margin: 18px 0 0;
-  color: #0c142a;
+  color: var(--text);
   font-size: 16px;
   font-weight: 700;
 }
 
 #loading-submessage {
   margin: 5px 0 0;
-  color: #526b9f;
+  color: var(--secondary-text);
   font-size: 13px;
 }
 
